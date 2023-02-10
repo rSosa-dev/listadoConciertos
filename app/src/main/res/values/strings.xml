@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">listadoConciertos</string>
+    <string name="mapa">Mapa</string>
+    <string name="lista">Lista</string>
+</resources>
