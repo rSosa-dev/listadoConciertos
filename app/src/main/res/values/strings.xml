@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">listadoConciertos</string>
+    <string name="app_name">Saiko spain tour</string>
     <string name="mapa">Mapa</string>
     <string name="lista">Lista</string>
+    <string name="mapActivityName">Map</string>
 </resources>
