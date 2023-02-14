@@ -14,6 +14,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton btnUbi;
+    private ImageButton btnTicket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +29,19 @@ public class MainActivity extends AppCompatActivity {
         btnUbi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //switchActivities(MapActivity.class);
-                Intent switchIntent = new Intent(MainActivity.this, MapActivity.class);
-                startActivity(switchIntent);
+                switchActivities(MapActivity.class);
                 //Toast.makeText(MainActivity.this, "Pulsado", Toast.LENGTH_LONG).show();
             }
         });
+
+        btnTicket = (ImageButton) findViewById(R.id.btnTickets);
+        btnTicket.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                //switchActivities(showsActivity.class);
+            }
+        });
+
     }
 
     private void switchActivities(Class activityClass) {

@@ -28,10 +28,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         setContentView(R.layout.map_activity);
 
-        /*// Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);*/
+        mapFragment.getMapAsync(this);
 
     }
 
@@ -41,15 +41,17 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         //Posicionamos una vista inicial del mapa.
-        LatLng institut = new LatLng(41.289558967903304, 1.2459889876953898);   //Posicio de l'institut
+        LatLng tgnPlazaToros = new LatLng(41.11446845158823, 1.2453410953399355);
+        LatLng mrcSalaREM = new LatLng(37.98995441534601, -1.1281106266892353);
 
-        //Agregamos marcador al mapa (buscar uno.)
+        //Agregamos marcador al mapa.
 
         //Para agregar más de un marcador, copiamos y pegamos esta linea de abajo.
-        //mMap.addMarker(new MarkerOptions().position(institut).title("Jaume Huguet").icon(BitmapDescriptorFactory.fromResource(R.drawable.icona_mapa2))); //Personalitzacio del marcador
+        mMap.addMarker(new MarkerOptions().position(tgnPlazaToros).title("Tarraco Arena").icon(BitmapDescriptorFactory.fromResource(R.drawable.saikomapubi))); //Personalización del marcador
+        mMap.addMarker(new MarkerOptions().position(mrcSalaREM).title("Sala R.E.M").icon(BitmapDescriptorFactory.fromResource(R.drawable.saikomapubi)));
 
         mMap.moveCamera(CameraUpdateFactory.zoomTo(17.0f)); //Fijamos el zoom que podrá tener el mapa.
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(institut));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(tgnPlazaToros));
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE); //Tipo de mapa.
     }
 }
