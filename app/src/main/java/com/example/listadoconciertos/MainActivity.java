@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         btnTicket.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                //switchActivities(showsActivity.class);
+                switchActivities(ShowsActivity.class);
             }
         });
 

@@ -15,6 +15,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback{
@@ -43,17 +44,21 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         //Posicionamos una vista inicial del mapa.
+        LatLng mapStartingPoint = new LatLng(40.39695796877172, -3.7104109291736824);
         LatLng tgnPlazaToros = new LatLng(41.11446845158823, 1.2453410953399355);
         LatLng mrcSalaREM = new LatLng(37.98995441534601, -1.1281106266892353);
+        LatLng svSalaFanatic = new LatLng(37.36657169343572, -5.959556598731479);
+        LatLng jnSalaKharma = new LatLng(37.7839056176647, -3.784421447082449);
+
 
         //Agregamos marcador al mapa.
-
-        //Para agregar más de un marcador, copiamos y pegamos esta linea de abajo.
         mMap.addMarker(new MarkerOptions().position(tgnPlazaToros).title("Tarraco Arena").icon(BitmapDescriptorFactory.fromResource(R.drawable.saikomapubi))); //Personalización del marcador
         mMap.addMarker(new MarkerOptions().position(mrcSalaREM).title("Sala R.E.M").icon(BitmapDescriptorFactory.fromResource(R.drawable.saikomapubi)));
+        mMap.addMarker(new MarkerOptions().position(svSalaFanatic).title("Sala fanatic").icon(BitmapDescriptorFactory.fromResource(R.drawable.saikomapubi)));
+        mMap.addMarker(new MarkerOptions().position(jnSalaKharma).title("Sala Kharma").icon(BitmapDescriptorFactory.fromResource(R.drawable.saikomapubi)));
 
-        mMap.moveCamera(CameraUpdateFactory.zoomTo(17.0f)); //Fijamos el zoom que podrá tener el mapa.
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(tgnPlazaToros));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(6.3f)); //Fijamos el zoom que podrá tener el mapa.
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(mapStartingPoint));
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE); //Tipo de mapa.
     }
 
