@@ -1,6 +1,8 @@
 package com.example.listadoconciertos;
 
 import android.os.Bundle;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +35,13 @@ public class ShowsActivity extends AppCompatActivity {
             hm.put("listView_logo", Integer.toString(logoList[i]));
             hashList.add(hm);
         }
+
+        String[] from = {"listView_logo"};
+        int[] to = {R.id.imgDisco};
+
+        SimpleAdapter simpleAdapter = new SimpleAdapter(getBaseContext(), hashList, R.layout.shows_activity, from, to);
+        ListView androidListView = (ListView) findViewById(R.id.showsListView);
+        androidListView.setAdapter(simpleAdapter);
     }
 
 }
