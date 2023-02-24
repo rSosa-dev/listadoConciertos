@@ -25,6 +25,8 @@ public class ShowsActivity extends AppCompatActivity {
         String[] cityList = sI.getCityList();
         String[] discoList = sI.getDiscoList();
         int[] logoList = sI.getLogoList();
+        String[] cityAddresses = sI.getCityAddresses();
+        String[] showTime = sI.getShowTime();
 
         List<HashMap<String, String>> hashList = new ArrayList<HashMap<String, String>>();
 
@@ -33,11 +35,16 @@ public class ShowsActivity extends AppCompatActivity {
             hm.put("listView_city", cityList[i]);
             hm.put("listView_disco", discoList[i]);
             hm.put("listView_logo", Integer.toString(logoList[i]));
+            hm.put("listView_addresses", cityAddresses[i]);
+            hm.put("listView_showTime", showTime[i]);
+            hm.put("listView_saikoUbi", Integer.toString(R.drawable.saikoshowlocationlogo));
+            hm.put("listView_saikoTime", Integer.toString(R.drawable.saikoshowclocklogo));
+            hm.put("listView_saikoDisco", Integer.toString(R.drawable.saikoshowdiscologo));
             hashList.add(hm);
         }
 
-        String[] from = {"listView_logo"};
-        int[] to = {R.id.imgDisco};
+        String[] from = {"listView_logo", "listView_addresses", "listView_disco", "listView_showTime", "listView_saikoUbi", "listView_saikoTime", "listView_saikoDisco"};
+        int[] to = {R.id.imgDisco, R.id.txtUbi, R.id.txtLocal, R.id.txtHora, R.id.imgUbi, R.id.imgHora, R.id.imgLocal};
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(getBaseContext(), hashList, R.layout.shows_activity, from, to);
         ListView androidListView = (ListView) findViewById(R.id.showsListView);
