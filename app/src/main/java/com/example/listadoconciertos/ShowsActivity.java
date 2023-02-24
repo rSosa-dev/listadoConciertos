@@ -1,17 +1,24 @@
 package com.example.listadoconciertos;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class ShowsActivity extends AppCompatActivity {
+public class ShowsActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +56,27 @@ public class ShowsActivity extends AppCompatActivity {
         SimpleAdapter simpleAdapter = new SimpleAdapter(getBaseContext(), hashList, R.layout.shows_activity, from, to);
         ListView androidListView = (ListView) findViewById(R.id.showsListView);
         androidListView.setAdapter(simpleAdapter);
+
+        androidListView.setOnItemClickListener(this);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if (position == 0) {
+            webUrl("https://proticketing.com/ticketplus/ca_ES/entradas/evento/28021");
+        } else if (position == 1) {
+            webUrl("https://www.enterticket.es/eventos/saiko-526832");
+        } else if (position == 2) {
+            webUrl("https://salafanatic.com/evento/saiko/");
+        } else if (position == 3) {
+            webUrl("https://bangtickets.es/evento/62");
+        }
+    }
+
+    public void webUrl(String url) {
+        Intent viewIntent = new Intent(new Intent("android.intent.action.VIEW",
+                Uri.parse(url)));
+        startActivity(viewIntent);
     }
 
 }
