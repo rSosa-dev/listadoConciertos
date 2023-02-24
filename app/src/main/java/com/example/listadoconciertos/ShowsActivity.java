@@ -38,7 +38,7 @@ public class ShowsActivity extends AppCompatActivity implements AdapterView.OnIt
         List<HashMap<String, String>> hashList = new ArrayList<HashMap<String, String>>();
 
         for (int i = 0; i < cityList.length; i++) {
-            HashMap<String, String> hm = new HashMap<String, String>();
+            HashMap<String, String> hm = new HashMap<String, String>(); // Agregamos elementos al HashMap.
             hm.put("listView_city", cityList[i]);
             hm.put("listView_disco", discoList[i]);
             hm.put("listView_logo", Integer.toString(logoList[i]));
@@ -47,9 +47,10 @@ public class ShowsActivity extends AppCompatActivity implements AdapterView.OnIt
             hm.put("listView_saikoUbi", Integer.toString(R.drawable.saikoshowlocationlogo));
             hm.put("listView_saikoTime", Integer.toString(R.drawable.saikoshowclocklogo));
             hm.put("listView_saikoDisco", Integer.toString(R.drawable.saikoshowdiscologo));
-            hashList.add(hm);
+            hashList.add(hm); // Add the HashMap to the list created before.
         }
 
+        // Ponemos EN ORDEN qué lista pertenecerá a qué objeto.
         String[] from = {"listView_logo", "listView_addresses", "listView_disco", "listView_showTime", "listView_saikoUbi", "listView_saikoTime", "listView_saikoDisco"};
         int[] to = {R.id.imgDisco, R.id.txtUbi, R.id.txtLocal, R.id.txtHora, R.id.imgUbi, R.id.imgHora, R.id.imgLocal};
 
@@ -57,13 +58,13 @@ public class ShowsActivity extends AppCompatActivity implements AdapterView.OnIt
         ListView androidListView = (ListView) findViewById(R.id.showsListView);
         androidListView.setAdapter(simpleAdapter);
 
-        androidListView.setOnItemClickListener(this);
+        androidListView.setOnItemClickListener(this); // Set the onItemListener.
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if (position == 0) {
-            webUrl("https://proticketing.com/ticketplus/ca_ES/entradas/evento/28021");
+            webUrl("https://proticketing.com/ticketplus/ca_ES/entradas/evento/28021"); // Llamamos al método que habilitará la navegación a la página web de las entradas.
         } else if (position == 1) {
             webUrl("https://www.enterticket.es/eventos/saiko-526832");
         } else if (position == 2) {

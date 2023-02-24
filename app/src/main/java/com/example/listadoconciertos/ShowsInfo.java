@@ -1,6 +1,7 @@
 package com.example.listadoconciertos;
 
 public class ShowsInfo {
+    // Clase destinada a guardar información de la listView para tener los datos separados de la inteligencia del programa.
 
     private String[] cityList = new String[]{
             "Tarragona", "Múrcia", "Sevilla", "Jaén",
