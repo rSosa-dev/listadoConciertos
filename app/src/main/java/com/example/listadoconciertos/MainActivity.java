@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -25,12 +26,14 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+        MediaPlayer btnClick = MediaPlayer.create(MainActivity.this, R.raw.saikoclickaudio);
+
         btnUbi = (ImageButton) findViewById(R.id.btnUbi);
         btnUbi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnClick.start();
                 switchActivities(MapActivity.class);
-                //Toast.makeText(MainActivity.this, "Pulsado", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         btnTicket.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                btnClick.start();
                 switchActivities(ShowsActivity.class);
             }
         });
