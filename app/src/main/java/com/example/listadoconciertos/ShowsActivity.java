@@ -32,7 +32,8 @@ public class ShowsActivity extends AppCompatActivity implements AdapterView.OnIt
         setContentView(R.layout.shows_activity);
 
         //MediaPlayer btnMusic = MediaPlayer.create(ShowsActivity.this, R.raw.saikoshowlistsong); // Obtenemos el objeto MediaPlayer con la canción que queremos que se reproduzca en la activity.
-        btnMusic.pause();
+        btnMusic.start();
+        //btnMusic.pause();
 
 
         ShowsInfo sI = new ShowsInfo();
@@ -71,12 +72,16 @@ public class ShowsActivity extends AppCompatActivity implements AdapterView.OnIt
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if (position == 0) {
+            btnMusic.pause();
             webUrl("https://proticketing.com/ticketplus/ca_ES/entradas/evento/28021"); // Llamamos al método que habilitará la navegación a la página web de las entradas.
         } else if (position == 1) {
+            btnMusic.pause();
             webUrl("https://www.enterticket.es/eventos/saiko-526832");
         } else if (position == 2) {
+            btnMusic.pause();
             webUrl("https://salafanatic.com/evento/saiko/");
         } else if (position == 3) {
+            btnMusic.pause();
             webUrl("https://bangtickets.es/evento/62");
         }
     }
