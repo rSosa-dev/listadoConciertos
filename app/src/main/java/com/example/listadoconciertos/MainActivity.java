@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        MediaPlayer btnClick = MediaPlayer.create(MainActivity.this, R.raw.saikoclickaudio);
+        MediaPlayer btnClick = MediaPlayer.create(MainActivity.this, R.raw.saikoclickaudio); // Creamos el objeto MediaPlayer para poder reproducir la música.
 
         btnUbi = (ImageButton) findViewById(R.id.btnUbi);
         btnUbi.setOnClickListener(new View.OnClickListener() {

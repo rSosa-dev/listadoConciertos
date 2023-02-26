@@ -2,6 +2,7 @@ package com.example.listadoconciertos;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +28,10 @@ public class ShowsActivity extends AppCompatActivity implements AdapterView.OnIt
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         setContentView(R.layout.shows_activity);
+
+        MediaPlayer btnMusic = MediaPlayer.create(ShowsActivity.this, R.raw.saikoshowlistsong); // Obtenemos el objeto MediaPlayer con la canción que queremos que se reproduzca en la activity.
+        // PARA PARAR LA MUSICA HAY QUE PONER btnMusic.pause(); EN EL ACTION LISTENER DEL BOTON QUE GUARDARÁ LA CONFIGURACIÓN.
+
 
         ShowsInfo sI = new ShowsInfo();
         String[] cityList = sI.getCityList();
