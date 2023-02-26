@@ -21,6 +21,8 @@ import java.util.List;
 
 public class ShowsActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
+    private MediaPlayer btnMusic = MediaPlayer.create(ShowsActivity.this, R.raw.saikoshowlistsong); // Obtenemos el objeto MediaPlayer con la canción que queremos que se reproduzca en la activity.
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +31,8 @@ public class ShowsActivity extends AppCompatActivity implements AdapterView.OnIt
         actionBar.hide();
         setContentView(R.layout.shows_activity);
 
-        MediaPlayer btnMusic = MediaPlayer.create(ShowsActivity.this, R.raw.saikoshowlistsong); // Obtenemos el objeto MediaPlayer con la canción que queremos que se reproduzca en la activity.
-        // PARA PARAR LA MUSICA HAY QUE PONER btnMusic.pause(); EN EL ACTION LISTENER DEL BOTON QUE GUARDARÁ LA CONFIGURACIÓN.
+        //MediaPlayer btnMusic = MediaPlayer.create(ShowsActivity.this, R.raw.saikoshowlistsong); // Obtenemos el objeto MediaPlayer con la canción que queremos que se reproduzca en la activity.
+        btnMusic.pause();
 
 
         ShowsInfo sI = new ShowsInfo();

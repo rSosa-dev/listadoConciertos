@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageButton btnUbi;
     private ImageButton btnTicket;
-
+    private MediaPlayer btnClick = MediaPlayer.create(MainActivity.this, R.raw.saikoclickaudio); // Creamos el objeto MediaPlayer para poder reproducir la música.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
         actionBar.hide();
 
         setContentView(R.layout.activity_main);
+        btnClick.pause();
 
-        MediaPlayer btnClick = MediaPlayer.create(MainActivity.this, R.raw.saikoclickaudio); // Creamos el objeto MediaPlayer para poder reproducir la música.
 
         btnUbi = (ImageButton) findViewById(R.id.btnUbi);
         btnUbi.setOnClickListener(new View.OnClickListener() {
