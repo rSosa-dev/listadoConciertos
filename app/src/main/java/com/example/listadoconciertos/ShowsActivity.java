@@ -75,6 +75,11 @@ public class ShowsActivity extends AppCompatActivity implements AdapterView.OnIt
         androidListView.setOnItemClickListener(this::onItemClick);
     }
 
+    public void onDestroy() {
+        super.onDestroy();
+        btnMusic.pause();
+    }
+
     public void webUrl(String url) {
         Intent viewIntent = new Intent(new Intent("android.intent.action.VIEW",
                 Uri.parse(url)));
